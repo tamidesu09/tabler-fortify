@@ -1,54 +1,49 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <link rel="stylesheet" href="{{asset('css/tabler.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/demo.min.css')}}">
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.bunny.net">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/@adminkit/core@latest/dist/css/app.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-material-ui@5.0.15/material-ui.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <!-- @vite(['resources/js/app.js']) -->
-    <link href="https://cdn.datatables.net/v/ju/dt-1.13.4/datatables.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="{{asset('css/main.css')}}">
+    <style>
+        @import url('https://rsms.me/inter/inter.css');
+
+        :root {
+            --tblr-font-sans-serif: 'Inter Var', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+        }
+
+        body {
+            font-feature-settings: "cv03", "cv04", "cv11";
+        }
+    </style>
 </head>
 
 <body>
-    <div class="wrapper">
-        <!-- Sidebar -->
-        @auth
-        @if(auth()->user()->email_verified_at!=null)
+
+    <script src="{{asset('js/demo-theme.min.js')}}"></script>
+    <div class="page">
+
+        @auth()
         @include('layouts.sidebar')
-        @endif
         @endauth
-        <div class="main">
-            <!-- Top Navigation Bar -->
-            @include('layouts.top-navigation')
+        @include('layouts.top-navigation')
 
+        <div class="page-wrapper">
+            <div class="my-3">
+                @yield('content')
 
-            <main class="content py-4">
-                <div class="container-fluid p-0">
-                    @yield('content')
-                </div>
-            </main>
-
-            <!-- Footer -->
-            @include('layouts.footer')
+            </div>
         </div>
     </div>
 
-    <script src="https://unpkg.com/@adminkit/core@latest/dist/js/app.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdn.datatables.net/v/ju/dt-1.13.4/datatables.min.js"></script>
-    @yield('scripts')
+
+    <script src="{{asset('js/tabler.min.js')}}"></script>
+    <script src="{{asset('js/demo.min.js')}}"></script>
 
 </body>
 

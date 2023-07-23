@@ -3,15 +3,22 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-sm-8">
             <!-- Two Factor Authentication -->
-            @include('profile.two-factor')
+            <div class="mb-3">
+                @include('profile.two-factor')
 
+            </div>
             <!-- Profile Information -->
-            @include('profile.profile')
 
+            <div class="mb-3">
+                @include('profile.profile')
+            </div>
+            
             <!-- Password -->
-            @include('profile.password')
+            <div class="mb-3">
+                @include('profile.password')
+            </div>
 
         </div>
     </div>
