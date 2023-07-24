@@ -31,8 +31,8 @@
         }
 
         #listjs.pagination li a {
-            color: #fff;
-            background-color: var(--tblr-primary);
+            color: var(--tblr-light);
+            background-color: var(--tblr-dark);
             padding: 4px 10px;
             border-radius: 5px;
         }
@@ -51,7 +51,6 @@
         <div class="page-wrapper">
             <div class="my-3">
                 @yield('content')
-
             </div>
         </div>
     </div>
