@@ -625,6 +625,8 @@
 @endsection
 
 @section('scripts')
+@include('scripts.datatables')
+@include('scripts.listjs')
 <script>
     $(document).ready(function() {
 
@@ -657,15 +659,6 @@
             pagination: true
         };
         var userList = new List('users', options);
-
-
-
-
-
-
-
-
-
     });
 </script>
 @endsection
