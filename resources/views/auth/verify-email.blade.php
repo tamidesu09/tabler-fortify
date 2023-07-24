@@ -5,13 +5,14 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">
+                <!-- <div class="card-header">
                     <h5 class="card-title">
                         Verify Your Email Address
                     </h5>
-                </div>
-
+                </div> -->
                 <div class="card-body">
+                    <h5 class="card-title">Verify Your Email Address</h5>
+
                     @if (session('resent'))
                     <div class="alert alert-success" role="alert">
                         {{ __('A fresh verification link has been sent to your email address.') }}
