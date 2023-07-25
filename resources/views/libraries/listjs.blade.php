@@ -30,6 +30,7 @@
                             <option value="50">50</option>
                             <option value="100">100</option>
                         </select>
+                        <small class="text-muted">Select the number of displayed users in this list</small>
                     </div>
                     <div class="bd-highlight">
                         <ul id="listjs" class="pagination">
@@ -96,18 +97,16 @@
         };
         var userList = new List('users', options);
 
-
         var paginatorSelect = document.getElementById('paginator');
 
         paginatorSelect.addEventListener('change', function() {
-            var selectedValue = parseInt(paginatorSelect.value);
+            var selectedValue = parseInt(this.value);
 
-            options.page = selectedValue;
+            userList.page = selectedValue;
 
             userList.update();
-
         });
-
     });
 </script>
+
 @endsection
