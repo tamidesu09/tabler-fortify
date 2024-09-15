@@ -180,8 +180,10 @@
                 </div>
             </div>
         </div>
+        <!-- SIDEBAR NAVIGATION -->
         <div class="collapse navbar-collapse" id="sidebar-menu">
             <ul class="navbar-nav pt-lg-3">
+                <!-- HOME -->
                 <li class="nav-item @if(Route::currentRouteName() == 'home') active dropdown @endif">
                     <a class="nav-link" href="/home">
                         <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
@@ -197,6 +199,7 @@
                         </span>
                     </a>
                 </li>
+                <!-- PROFILE -->
                 <li class="nav-item @if(request()->is('profile/*')) active dropdown @endif">
                     <a class="nav-link" href="{{route('profile.edit')}}">
                         <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
@@ -236,9 +239,7 @@
                                 <a class="dropdown-item @if(Route::currentRouteName() == 'libraries.listjs') active @endif" href="{{route('libraries.listjs')}}">
                                     List.js
                                 </a>
-
                             </div>
-
                         </div>
                     </div>
                 </li>
