@@ -13,15 +13,34 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Home Route
+Route::view('/', 'home')->name('home');
+
+// Authenticated Routes
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::view('/home', 'home')->name('home');
+    Route::view('/profile/edit', 'profile.edit')->name('profile.edit');
+    Route::view('/profile/password', 'profile.password')->name('profile.password');
+    Route::view('/profile/two-factor', 'profile.two-factor')->name('profile.two-factor');
+    Route::view('/profile/recovery-code', 'auth.recovery-code')->name('profile.recovery-code');
+
+    Route::view('/libraries/datatables', 'libraries.datatables')->name('libraries.datatables');
+    Route::view('/libraries/listjs', 'libraries.listjs')->name('libraries.listjs');
 });
-Route::view('/home', 'home')->middleware(['auth', 'verified'])->name('home');
-Route::view('/profile/edit', 'profile.edit')->middleware(['auth', 'verified'])->name('profile.edit');
-Route::view('/profile/password', 'profile.password')->middleware(['auth', 'verified'])->name('profile.password');
-Route::view('/profile/two-factor', 'profile.two-factor')->middleware(['auth', 'verified'])->name('profile.two-factor');
-Route::view('/profile/recovery-code', 'auth.recovery-code')->name('profile.recovery-code');
 
-Route::view('/libraries/datatables', 'libraries.datatables')->middleware(['auth', 'verified'])->name('libraries.datatables');
-Route::view('/libraries/listjs', 'libraries.listjs')->middleware(['auth', 'verified'])->name('libraries.listjs');
+// Public Routes
+Route::get('/services', function () {
+    return view('services'); // services.blade.php
+})->name('services');
 
+Route::get('/careers', function () {
+    return view('careers'); // careers.blade.php
+})->name('careers');
+
+Route::get('/about', function () {
+    return view('about'); // about.blade.php
+})->name('about');
+
+Route::get('/contact', function () {
+    return view('contact'); // contact.blade.php
+})->name('contact');
