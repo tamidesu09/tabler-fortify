@@ -1,7 +1,7 @@
 <!-- Combined Navbar with Centered Links -->
-<header class="navbar navbar-expand-lg py-4 bg-light shadow-lg" style="position: fixed; top: 0; width: 100%; z-index: 1000; background-color: #163673">
+<header class="navbar navbar-expand-lg bg-light ">
   <div class="container-xl">
-    <a class="navbar-brand text-primary" href="{{ route('home') }}">i-Bear True Solutions Inc.</a>
+    <a class="navbar-brand text-dark" href="{{ route('home') }}">i-Bear True Solutions Inc.</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

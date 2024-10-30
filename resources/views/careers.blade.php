@@ -10,74 +10,30 @@
 </div>
 
 <div class="container">
-<h2 class="mt-5">JOB <span style="color: #163673">OPENINGS</span></h1>
+<h1 class="mt-5">JOB <span style="color: #163673">OPENINGS</span></h1>
 <div class="container mt-5">
 
-  <!-- Cards Section -->
-<div class="container mt-5 mb-5">
-  <div class="row row-cols-1 row-cols-md-4 g-4">
-    <div class="col">
-      <div class="card h-70 border-light shadow"> <!-- Added 'shadow-sm' and 'border-0' -->
-        <img src="{{ asset('img/serv1.png') }}" class="card-img-top" alt="Automation Services" />
-        <div class="card-body">
-          <h5 class="card-title fw-bold">Sample Job 1</h5>
-          <p class="card-text" style="font-size: 15px">
-            Full Time : 9:00AM ~ 5:00PM
-          </p>
-          <hr>
-          <a href="#" class="btn btn-outline-primary d-grid">View Details</a>
+  <div class="row mb-5 mt-5">
+    @foreach ($jobs as $job)
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow-sm mb-4 border-0">
+                <div class="card-header bg-dark text-white">
+                    <h4 class="card-title mb-0 fw-semibold">{{ $job->title }}</h4>
+                </div>
+                <div class="card-body">
+                    <p class="text-muted">Type: {{ $job->type }}</p>
+                    <p class="text-muted">Hours: {{ $job->hours_start }} - {{ $job->hours_end }}</p>
+                    <a href="{{ route('jobs.show', $job->id) }}" class="btn btn-outline-dark">View Details</a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-70 border-light shadow"> <!-- Added 'shadow-sm' and 'border-0' -->
-        <img src="{{ asset('img/serv2.png') }}" class="card-img-top" alt="Design and System" />
-        <div class="card-body">
-          <h5 class="card-title fw-bold">Sample Job 2</h5>
-          <p class="card-text" style="font-size: 15px">
-            Full Time : 9:00AM ~ 5:00PM
-          </p>
-          <hr>
-          <a href="#" class="btn btn-outline-primary d-grid">View Details</a>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-70 border-light shadow"> <!-- Added 'shadow-sm' and 'border-0' -->
-        <img src="{{ asset('img/serv3.png') }}" class="card-img-top" alt="ICT" />
-        <div class="card-body">
-          <h5 class="card-title fw-bold">Sample Job 3</h5>
-          <p class="card-text" style="font-size: 15px">
-            Full Time : 9:00AM ~ 5:00PM
-          </p>
-          <hr>
-          <a href="#" class="btn btn-outline-primary d-grid">View Details</a>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-70 border-light shadow"> <!-- Added 'shadow-sm' and 'border-0' -->
-        <img src="{{ asset('img/serv4.png') }}" class="card-img-top" alt="TechSupport" />
-        <div class="card-body">
-          <h5 class="card-title fw-bold">Sample Job 4</h5>
-          <p class="card-text" style="font-size: 15px">
-            Full Time : 9:00AM ~ 5:00PM
-          </p>
-          <hr>
-          <a href="#" class="btn btn-outline-primary d-grid">View Details</a>
-        </div>
-      </div>
-    </div>
-  </div>
+    @endforeach
 </div>
-</div>
-
-<div class="container">
-<h2 class="mt-5">WORK <span style="color: #163673">ARRANGEMENT</span></h1>
-<div class="container mt-5">
 
 <div class="container mt-5">
   <div class="row">
+    <h1 class="mt-5">WORK <span style="color: #163673">ARRANGEMENT</span></h1>
+
     <!-- First Card: ONLINE -->
     <div class="col-md-4">
       <div class="card bg-dark text-white custom-card border-0">

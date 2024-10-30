@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\JobController;
+use App\Models\Job;
+use App\Http\Controllers\ApplicationsController;
+use App\Models\Applications;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 // Home Route
 Route::view('/', 'home')->name('home');
+Route::view('/admin', 'admin.index')->name('index');
 
 // Authenticated Routes
 Route::middleware(['auth', 'verified'])->group(function () {
@@ -34,8 +39,10 @@ Route::get('/services', function () {
 })->name('services');
 
 Route::get('/careers', function () {
-    return view('careers'); // careers.blade.php
+    $jobs = Job::all();
+        return view('careers', compact('jobs')); // careers.blade.php
 })->name('careers');
+
 
 Route::get('/about', function () {
     return view('about'); // about.blade.php
@@ -44,3 +51,22 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return view('contact'); // contact.blade.php
 })->name('contact');
+
+Route::get('jobs', [JobController::class, 'index'])->middleware(['auth', 'verified'])->name('jobs.index');
+Route::get('jobs/create', [JobController::class, 'create'])->middleware(['auth', 'verified'])->name('jobs.create');
+Route::post('jobs/store', [JobController::class, 'store'])->middleware(['auth', 'verified'])->name('jobs.store');
+Route::get('jobs/{job_id}', [JobController::class, 'show'])->middleware(['auth', 'verified'])->name('jobs.show');
+
+Route::get('jobs/{job_id}/edit', [JobController::class, 'edit'])->middleware(['auth', 'verified'])->name('jobs.edit');
+Route::put('jobs/{job_id}', [JobController::class, 'update'])->middleware(['auth', 'verified'])->name('jobs.update');
+Route::delete('jobs/{job}', [JobController::class, 'destroy'])
+    ->middleware(['auth', 'verified'])
+    ->name('jobs.destroy');
+
+Route::post('/applications', [ApplicationsController::class, 'store'])->name('applications.store');
+Route::post('/jobs/uploadCv', [ApplicationsController::class, 'uploadCv'])->name('jobs.uploadCv');
+
+Route::get('candidates', [ApplicationsController::class, 'index'])->middleware(['auth', 'verified'])->name('candidate.index');
+
+
+Route::resource('candidate', ApplicationsController::class);

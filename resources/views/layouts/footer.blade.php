@@ -12,9 +12,9 @@
         <div class="row">
           <!-- Grid column -->
           <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-            <h6 class="text-uppercase mb-4 font-weight-bold">
+            <h3 class="text-uppercase mb-4 font-weight-bold">
               i-Bear True Solutions Inc.
-            </h6>
+            </h3>
             <p>
             i-BEAR TRUE SOLUTIONS INC. (iBTS)  is a union of IT and business management professionals with mutual passion and interest in creating, developing and providing true solutions to current and emerging IT challenges of its client companies and individuals in the furtherance of their business. 
             </p>
